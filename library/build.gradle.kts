@@ -8,8 +8,8 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "io.github.kotlin"
-version = "1.0.0"
+group = "io.github.shangeethsivan.kmplibrarysample"
+version = "0.0.1"
 
 kotlin {
     jvm()
