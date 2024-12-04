@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'SharedLibrary'
-    spec.version                  = '0.0.5'
+    spec.version                  = '0.0.6'
     spec.homepage                 = 'https://github.com/shangeethsivan/kmplibrarysample'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
-    spec.license                  = ''
+    spec.license                  = { :type => 'Apache 2.0', :file => 'LICENSE.txt' }
     spec.summary                  = 'A Test Kotlin Multiplatform shared library'
     spec.vendored_frameworks      = 'framework/SharedLibrary.framework'
     spec.libraries                = 'c++'
