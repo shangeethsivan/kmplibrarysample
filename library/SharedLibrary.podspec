@@ -6,12 +6,12 @@ Pod::Spec.new do |spec|
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'A Test Kotlin Multiplatform shared library'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/SharedLibrary.framework'
+    spec.vendored_frameworks      = 'framework/SharedLibrary.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '14.0'
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/SharedLibrary.framework') || Dir.empty?('build/cocoapods/framework/SharedLibrary.framework')
+    if !Dir.exist?('framework/SharedLibrary.framework') || Dir.empty?('framework/SharedLibrary.framework')
         raise "
 
         Kotlin framework 'SharedLibrary' doesn't exist yet, so a proper Xcode project can't be generated.
