@@ -21,7 +21,13 @@ kotlin {
         }
     }
     // IOS Simulators
-    iosX64()
+    iosX64{
+        binaries {
+            framework {
+                baseName = "SharedLibrary"
+            }
+        }
+    }
     // New IOS Devices
     iosArm64 {
         binaries {
@@ -31,7 +37,14 @@ kotlin {
         }
     }
     // Simulators
-    iosSimulatorArm64()
+    iosSimulatorArm64{
+        binaries {
+            framework {
+                baseName = "SharedLibrary"
+            }
+        }
+    }
+    applyDefaultHierarchyTemplate()
     linuxX64()
 
     sourceSets {
@@ -75,11 +88,11 @@ kotlin {
 
     cocoapods {
         name = "SharedLibrary"
-        version = "0.0.3"
+        version = "0.0.4"
         summary = "A Test Kotlin Multiplatform shared library"
         homepage = "https://github.com/shangeethsivan/kmplibrarysample"
 
-        ios.deploymentTarget = "16.0"
+        ios.deploymentTarget = "14.0"
 
         framework {
             baseName = "SharedLibrary"

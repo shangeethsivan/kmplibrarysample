@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'SharedLibrary'
-    spec.version                  = '0.0.3'
+    spec.version                  = '0.0.4'
     spec.homepage                 = 'https://github.com/shangeethsivan/kmplibrarysample'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'A Test Kotlin Multiplatform shared library'
     spec.vendored_frameworks      = 'build/cocoapods/framework/SharedLibrary.framework'
     spec.libraries                = 'c++'
-    spec.ios.deployment_target    = '16.0'
+    spec.ios.deployment_target    = '14.0'
                 
                 
     if !Dir.exist?('build/cocoapods/framework/SharedLibrary.framework') || Dir.empty?('build/cocoapods/framework/SharedLibrary.framework')
