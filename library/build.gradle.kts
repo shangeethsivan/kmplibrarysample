@@ -1,14 +1,12 @@
 import com.vanniktech.maven.publish.SonatypeHost
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
-import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
-    kotlin("plugin.serialization")
+    alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.cocoapods)
 }
 
 group = "io.github.shangeethsivan.kmplibrarysample"
@@ -22,8 +20,17 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
+    // IOS Simulators
     iosX64()
-    iosArm64()
+    // New IOS Devices
+    iosArm64 {
+        binaries {
+            framework {
+                baseName = "SharedLibrary"
+            }
+        }
+    }
+    // Simulators
     iosSimulatorArm64()
     linuxX64()
 
@@ -63,6 +70,19 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.test)
             }
+        }
+    }
+
+    cocoapods {
+        name = "SharedLibrary"
+        version = "0.0.2"
+        summary = "A Test Kotlin Multiplatform shared library"
+        homepage = "https://github.com/shangeethsivan/kmplibrarysample"
+
+        ios.deploymentTarget = "16.0"
+
+        framework {
+            baseName = "SharedLibrary"
         }
     }
 }

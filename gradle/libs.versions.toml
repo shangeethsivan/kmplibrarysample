@@ -23,4 +23,5 @@ koin-core = { module = "io.insert-koin:koin-core"}
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
-kotlin-serialization = { id = "plugin.serialization", version = "2.1.0" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.1.0" }
+cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version = "2.1.0" }
