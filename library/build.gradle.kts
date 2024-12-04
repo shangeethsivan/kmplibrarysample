@@ -88,7 +88,7 @@ kotlin {
 
     cocoapods {
         name = "SharedLibrary"
-        version = "0.0.4"
+        version = "0.0.5"
         summary = "A Test Kotlin Multiplatform shared library"
         homepage = "https://github.com/shangeethsivan/kmplibrarysample"
 
