@@ -7,7 +7,10 @@ import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class TMDBRepoImpl(
 //    private val movieDao: MovieDao,
@@ -24,7 +27,8 @@ class TMDBRepoImpl(
 
     override suspend fun getPopularMovies(): MoviesResponseContainer {
 //        return moviesService.getPopularMovies()
-        return client.get("https://api.themoviedb.org/3/movie/now_playing?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1").body()
+        return client.get("https://api.themoviedb.org/3/movie/now_playing?api_key=38a73d59546aa378980a88b645f487fc&language=en-US&page=1")
+            .body()
     }
 
     override suspend fun saveFavourite(movie: Movie) {
@@ -41,6 +45,17 @@ class TMDBRepoImpl(
 
     override suspend fun getFavorites(): Flow<List<Movie>> {
         TODO("Not yet implemented")
+    }
+
+    fun testWrapper(completionHandler: (MoviesResponseContainer?, Throwable?) -> Unit) {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                completionHandler(getPopularMovies(), null)
+            } catch (e: Throwable) {
+                completionHandler(null, e)
+            }
+
+        }
     }
     /*
         override suspend fun saveFavourite(movie: Movie) {

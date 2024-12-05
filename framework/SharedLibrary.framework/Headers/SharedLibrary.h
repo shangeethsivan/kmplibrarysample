@@ -314,6 +314,7 @@ __attribute__((swift_name("TMDBRepoImpl")))
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)saveFavouriteMovie:(SharedLibraryMovie *)movie completionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("saveFavourite(movie:completionHandler:)")));
+- (void)testWrapperCompletionHandler:(void (^)(SharedLibraryMoviesResponseContainer * _Nullable, SharedLibraryKotlinThrowable * _Nullable))completionHandler __attribute__((swift_name("testWrapper(completionHandler:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
