@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'SharedLibrary'
-    spec.version                  = '0.0.6'
+    spec.version                  = '0.0.7'
     spec.homepage                 = 'https://github.com/shangeethsivan/kmplibrarysample'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
