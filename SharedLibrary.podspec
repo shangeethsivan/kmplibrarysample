@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'SharedLibrary'
-    spec.version                  = '0.0.8'
+    spec.version                  = '0.0.9'
     spec.homepage                 = 'https://github.com/shangeethsivan/kmplibrarysample'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -43,7 +43,7 @@ Pod::Spec.new do |spec|
                 fi
                 set -ev
                 REPO_ROOT="$PODS_TARGET_SRCROOT"
-                "$REPO_ROOT/../gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
+                "$REPO_ROOT/../gradle" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
                     -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"
