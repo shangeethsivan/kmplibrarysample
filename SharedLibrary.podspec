@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'SharedLibrary'
-    spec.version                  = '0.0.9'
+    spec.version                  = '0.0.10'
     spec.homepage                 = 'https://github.com/shangeethsivan/kmplibrarysample'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -30,25 +30,5 @@ Pod::Spec.new do |spec|
         'KOTLIN_PROJECT_PATH' => ':library',
         'PRODUCT_MODULE_NAME' => 'SharedLibrary',
     }
-                
-    spec.script_phases = [
-        {
-            :name => 'Build SharedLibrary',
-            :execution_position => :before_compile,
-            :shell_path => '/bin/sh',
-            :script => <<-SCRIPT
-                if [ "YES" = "$OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED" ]; then
-                  echo "Skipping Gradle build task invocation due to OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED environment variable set to \"YES\""
-                  exit 0
-                fi
-                set -ev
-                REPO_ROOT="$PODS_TARGET_SRCROOT"
-                "$REPO_ROOT/../gradle" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
-                    -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
-                    -Pkotlin.native.cocoapods.archs="$ARCHS" \
-                    -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"
-            SCRIPT
-        }
-    ]
                 
 end

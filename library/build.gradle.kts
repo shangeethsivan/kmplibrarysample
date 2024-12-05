@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "io.github.shangeethsivan.kmplibrarysample"
-version = "0.0.9"
+version = "0.0.10"
 
 kotlin {
     jvm()
@@ -88,7 +88,7 @@ kotlin {
 
     cocoapods {
         name = "SharedLibrary"
-        version = "0.0.9"
+        version = "0.0.10"
         summary = "A Test Kotlin Multiplatform shared library"
         homepage = "https://github.com/shangeethsivan/kmplibrarysample"
 
